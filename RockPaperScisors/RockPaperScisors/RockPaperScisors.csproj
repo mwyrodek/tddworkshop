@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RockPaperScissors.Backend\RockPaperScissors.Backend.csproj" />
+  </ItemGroup>
+
 </Project>

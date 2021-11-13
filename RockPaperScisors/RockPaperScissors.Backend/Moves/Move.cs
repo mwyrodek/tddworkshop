@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissors.Backend.Moves
 {
-    public abstract class Move
+    public interface Move
     {
-        public abstract MoveTypes MoveType { get; }
+         MoveType MoveType { get; }
 
-        public abstract MatchResult IsWinning(MoveTypes move);
+         TurnResult IsWinning(MoveType move);
     }
 }

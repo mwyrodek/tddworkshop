@@ -10,41 +10,41 @@ namespace RockPaperScissors.Backend.Tests
         {
             Scissors scissors = new Scissors();
 
-            Assert.Equal(MoveTypes.SCISSORS, scissors.MoveType);
+            Assert.Equal(MoveType.SCISSORS, scissors.MoveType);
         }
 
 
         [Theory]
-        [InlineData(MoveTypes.PAPER)]
-        public void Scissors_WinWith(MoveTypes move)
+        [InlineData(MoveType.PAPER)]
+        public void Scissors_WinWith(MoveType move)
         {
             Scissors scissors = new Scissors();
 
             var actual = scissors.IsWinning(move);
 
-            Assert.Equal(MatchResult.WIN, actual);
+            Assert.Equal(TurnResult.WIN, actual);
         }
 
         [Theory]
-        [InlineData(MoveTypes.ROCK)]
-        public void Scissors_LosesTo(MoveTypes move)
+        [InlineData(MoveType.ROCK)]
+        public void Scissors_LosesTo(MoveType move)
         {
             Scissors scissors = new Scissors();
 
             var actual = scissors.IsWinning(move);
 
-            Assert.Equal(MatchResult.LOSE, actual);
+            Assert.Equal(TurnResult.LOSE, actual);
         }
 
         [Theory]
-        [InlineData(MoveTypes.SCISSORS)]
-        public void Scissors_TiesWithScissors(MoveTypes move)
+        [InlineData(MoveType.SCISSORS)]
+        public void Scissors_TiesWithScissors(MoveType move)
         {
             Scissors scissors = new Scissors();
 
             var actual = scissors.IsWinning(move);
 
-            Assert.Equal(MatchResult.TIE, actual);
+            Assert.Equal(TurnResult.TIE, actual);
         }
     }
 }

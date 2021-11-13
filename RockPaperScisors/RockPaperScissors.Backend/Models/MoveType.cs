@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissors.Backend
 {
-    public enum MatchResult
+    public enum MoveType
     {
-        WIN,
-        LOSE,
-        TIE
+        PAPER,
+        SCISSORS,
+        ROCK,
 
     }
 }
