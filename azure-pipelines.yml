@@ -20,7 +20,6 @@ steps:
   inputs:
     packageType: 'sdk'
     version: '6.x'
-    vsVersion: '17.0.0'
     includePreviewVersions: true
 - task: NuGetToolInstaller@1
 
@@ -39,6 +38,7 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
+    vsVersion: '17.0'
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
