@@ -9,11 +9,11 @@ namespace RockPaperScissors.Backend.Tests
     public class GameEngineTest
     {
         TestAbleEngine sut;
-        Mock<iUserInterface> mockUI;
+        Mock<IUserInterface> mockUI;
 
         public GameEngineTest()
         {
-           mockUI = new Mock<iUserInterface>();
+           mockUI = new Mock<IUserInterface>();
             sut = new TestAbleEngine(mockUI.Object);
         }
 
@@ -122,7 +122,7 @@ namespace RockPaperScissors.Backend.Tests
 
         public class TestAbleEngine : GameEngine
         {
-            public TestAbleEngine(iUserInterface ui) : base(ui)
+            public TestAbleEngine(IUserInterface ui) : base(ui)
             {
             }
 

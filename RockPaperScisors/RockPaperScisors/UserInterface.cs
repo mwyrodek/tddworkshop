@@ -8,14 +8,12 @@ using System.Threading.Tasks;
 
 namespace RockPaperScisors
 {
-    public class UserInterface : iUserInterface
+    public class UserInterface : IUserInterface
     {
-        //posible improvment get desigered key
-        //handle exceptions
-        //
-        private iTerminal terminal;
 
-        public UserInterface(iTerminal terminal)
+        private ITerminal terminal;
+
+        public UserInterface(ITerminal terminal)
         {
             this.terminal = terminal;
         }

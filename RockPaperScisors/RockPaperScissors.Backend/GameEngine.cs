@@ -14,10 +14,10 @@ namespace RockPaperScissors.Backend
     public class GameEngine
     {
         private GameOptions Options;
-        private iUserInterface ui;
+        private IUserInterface ui;
         internal protected GameResult GameResult;
 
-        public GameEngine(iUserInterface Ui)
+        public GameEngine(IUserInterface Ui)
         {
             this.ui = Ui;
 

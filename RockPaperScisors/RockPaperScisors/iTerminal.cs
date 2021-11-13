@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RockPaperScisors
 {
-    public interface iTerminal
+    public interface ITerminal
     {
         void Print(string messege);
 

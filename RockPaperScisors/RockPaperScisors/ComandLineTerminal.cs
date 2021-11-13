@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace RockPaperScisors
 {
-    internal class ComandLineTerminal : iTerminal
+    internal class ComandLineTerminal : ITerminal
     {
         public void Print(string messege)
         {
-
             Console.WriteLine(messege);
         }
 

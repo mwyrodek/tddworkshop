@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissors.Backend
 {
-    public interface iUserInterface
+    public interface IUserInterface
     {
         GameOptions SetupGame();
 
