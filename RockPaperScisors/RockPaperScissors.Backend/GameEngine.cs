@@ -20,7 +20,8 @@ namespace RockPaperScissors.Backend
         public GameEngine(IUserInterface Ui)
         {
             this.ui = Ui;
-
+            this.GameResult = new GameResult();
+            this.Options = new GameOptions();
         }
 
         public void RunGame()
@@ -35,18 +36,17 @@ namespace RockPaperScissors.Backend
                 var result = PlayTurn(Actions);
 
                 ui.DisplayReults(result);
-
             }
         }
 
-        public void SetupGame()
+        protected void SetupGame()
         {
             this.Options = ui.SetupGame();
             if (this.Options.MaxWins < 1) throw new ArgumentOutOfRangeException($"Values {this.Options.MaxWins} is Smaller than minimal allowed number of wins: 1");
             this.GameResult = new GameResult();
         }
 
-        public GameResult PlayTurn(PlayerActions playersActions)
+        protected GameResult PlayTurn(PlayerActions playersActions)
         {
             if (this.GameResult.Finshed) throw new InvalidOperationException("Game should be finished");
             this.GameResult.TurnsFinished++;

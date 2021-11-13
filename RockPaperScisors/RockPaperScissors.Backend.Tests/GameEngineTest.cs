@@ -17,8 +17,6 @@ namespace RockPaperScissors.Backend.Tests
             sut = new TestAbleEngine(mockUI.Object);
         }
 
-
-
         [Theory]
         [InlineData(0)]
         [InlineData(-1)]
@@ -30,7 +28,7 @@ namespace RockPaperScissors.Backend.Tests
             mockUI.Setup(x => x.SetupGame()).Returns(gameOptions);
 
 
-            Assert.Throws<ArgumentOutOfRangeException>(() => sut.SetupGame());
+            Assert.Throws<ArgumentOutOfRangeException>(() => sut.ExposedSetupGame());
         }
 
         //todo add info
@@ -40,12 +38,12 @@ namespace RockPaperScissors.Backend.Tests
             GameOptions gameOptions = new GameOptions();
             gameOptions.MaxWins = 1;
             mockUI.Setup(x => x.SetupGame()).Returns(gameOptions);
-            sut.SetupGame();
+            sut.ExposedSetupGame();
             PlayerActions playersActions = new PlayerActions();
             playersActions.PlayerOneMove = MoveType.SCISSORS;
             playersActions.PlayerTwoMove = MoveType.PAPER;
 
-            var Result = sut.PlayTurn(playersActions);
+            var Result = sut.ExposedPlayTurn(playersActions);
 
             Assert.True(Result.Finshed);
         }
@@ -56,13 +54,13 @@ namespace RockPaperScissors.Backend.Tests
             GameOptions gameOptions = new GameOptions();
             gameOptions.MaxWins = 1;
             mockUI.Setup(x => x.SetupGame()).Returns(gameOptions);
-            sut.SetupGame();
+            sut.ExposedSetupGame();
 
             PlayerActions playersActions = new PlayerActions();
             playersActions.PlayerOneMove = MoveType.SCISSORS;
             playersActions.PlayerTwoMove = MoveType.PAPER;
 
-            var Result = sut.PlayTurn(playersActions);
+            var Result = sut.ExposedPlayTurn(playersActions);
 
             Assert.Equal(1, Result.PlayerOneScore);
         }
@@ -73,13 +71,13 @@ namespace RockPaperScissors.Backend.Tests
             GameOptions gameOptions = new GameOptions();
             gameOptions.MaxWins = 1;
             mockUI.Setup(x => x.SetupGame()).Returns(gameOptions);
-            sut.SetupGame();
+            sut.ExposedSetupGame();
 
             PlayerActions playersActions = new PlayerActions();
             playersActions.PlayerOneMove = MoveType.SCISSORS;
             playersActions.PlayerTwoMove = MoveType.PAPER;
 
-            var Result = sut.PlayTurn(playersActions);
+            var Result = sut.ExposedPlayTurn(playersActions);
 
             Assert.Equal(0, Result.PlayerTwoScore);
         }
@@ -90,24 +88,63 @@ namespace RockPaperScissors.Backend.Tests
             GameOptions gameOptions = new GameOptions();
             gameOptions.MaxWins = 1;
             mockUI.Setup(x => x.SetupGame()).Returns(gameOptions);
-            sut.SetupGame();
+            sut.ExposedSetupGame();
 
             PlayerActions playersActions = new PlayerActions();
             playersActions.PlayerOneMove = MoveType.SCISSORS;
             playersActions.PlayerTwoMove = MoveType.PAPER;
 
-            var Result = sut.PlayTurn(playersActions);
+            var Result = sut.ExposedPlayTurn(playersActions);
 
             Assert.Equal(1, Result.TurnsFinished);
         }
 
         [Fact]
-        public void GameInProgress_CantPlayMoreRoundsThenPlaned()
+        public void GameInProgress_PlayerTwoWinsRound_ResultsAreUpdated()
         {
             GameOptions gameOptions = new GameOptions();
             gameOptions.MaxWins = 1;
             mockUI.Setup(x => x.SetupGame()).Returns(gameOptions);
-            sut.SetupGame();
+            sut.ExposedSetupGame();
+
+            PlayerActions playersActions = new PlayerActions();
+            playersActions.PlayerOneMove = MoveType.SCISSORS;
+            playersActions.PlayerTwoMove = MoveType.ROCK;
+
+            var Result = sut.ExposedPlayTurn(playersActions);
+
+            Assert.Equal(2, Result.RoundWonByPlayer );
+            Assert.Equal(0, Result.PlayerOneScore);
+            Assert.Equal(1, Result.PlayerTwoScore);
+
+        }
+
+        [Fact]
+        public void GameInProgress_Tie_ResultsAreUpdated()
+        {
+            GameOptions gameOptions = new GameOptions();
+            gameOptions.MaxWins = 1;
+            mockUI.Setup(x => x.SetupGame()).Returns(gameOptions);
+            sut.ExposedSetupGame();
+
+            PlayerActions playersActions = new PlayerActions();
+            playersActions.PlayerOneMove = MoveType.ROCK;
+            playersActions.PlayerTwoMove = MoveType.ROCK;
+
+            var Result = sut.ExposedPlayTurn(playersActions);
+
+            Assert.Equal(0, Result.RoundWonByPlayer);
+            Assert.Equal(0, Result.PlayerOneScore);
+            Assert.Equal(0, Result.PlayerTwoScore);
+
+        }
+        [Fact]
+        public void GameInProgress_CantPlayMorewsThenPlaned()
+        {
+            GameOptions gameOptions = new GameOptions();
+            gameOptions.MaxWins = 1;
+            mockUI.Setup(x => x.SetupGame()).Returns(gameOptions);
+            sut.ExposedSetupGame();
 
             sut.ExposedGameResult.Finshed = true;
 
@@ -117,8 +154,9 @@ namespace RockPaperScissors.Backend.Tests
             playersActions.PlayerTwoMove = MoveType.PAPER;
 
 
-            Assert.Throws<InvalidOperationException>(() => sut.PlayTurn(playersActions));
+            Assert.Throws<InvalidOperationException>(() => sut.ExposedPlayTurn(playersActions));
         }
+
 
         public class TestAbleEngine : GameEngine
         {
@@ -136,6 +174,15 @@ namespace RockPaperScissors.Backend.Tests
                 {
                     GameResult = value;
                 }
+            }
+
+            public void ExposedSetupGame()
+            {
+                SetupGame();
+            }
+            public GameResult ExposedPlayTurn(PlayerActions playersActions)
+            {
+                return PlayTurn(playersActions);
             }
         }
     }

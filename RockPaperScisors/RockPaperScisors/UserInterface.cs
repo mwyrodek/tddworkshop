@@ -17,6 +17,7 @@ namespace RockPaperScisors
         {
             this.terminal = terminal;
         }
+
         public void DisplayReults(GameResult gameResult)
         {
 
