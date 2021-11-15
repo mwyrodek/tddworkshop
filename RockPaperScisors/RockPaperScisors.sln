@@ -7,10 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockPaperScisors", "RockPap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockPaperScissors.Backend", "RockPaperScissors.Backend\RockPaperScissors.Backend.csproj", "{D28E95A5-F52F-4F25-A47C-7F05370AFF04}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockPaperScissors.Backend.Tests", "RockPaperScissors.Backend.Tests\RockPaperScissors.Backend.Tests.csproj", "{0082F0C6-8A8B-41FC-88CC-352507874689}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockPaperScisors.FrontEnd.Tests", "RockPaperScisors.FrontEnd.Tests\RockPaperScisors.FrontEnd.Tests.csproj", "{09AB4D7C-FEE9-4D6E-A09B-076165E51E86}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,14 +21,6 @@ Global
 		{D28E95A5-F52F-4F25-A47C-7F05370AFF04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D28E95A5-F52F-4F25-A47C-7F05370AFF04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D28E95A5-F52F-4F25-A47C-7F05370AFF04}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0082F0C6-8A8B-41FC-88CC-352507874689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0082F0C6-8A8B-41FC-88CC-352507874689}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0082F0C6-8A8B-41FC-88CC-352507874689}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0082F0C6-8A8B-41FC-88CC-352507874689}.Release|Any CPU.Build.0 = Release|Any CPU
-		{09AB4D7C-FEE9-4D6E-A09B-076165E51E86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09AB4D7C-FEE9-4D6E-A09B-076165E51E86}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09AB4D7C-FEE9-4D6E-A09B-076165E51E86}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09AB4D7C-FEE9-4D6E-A09B-076165E51E86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
