@@ -19,6 +19,14 @@ steps:
     includePreviewVersions: true
 - task: NuGetToolInstaller@1
 
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'maciejwyrodek'
+    scannerMode: 'MSBuild'
+    projectKey: 'maciejwyrodek_TDDWorkshop'
+    projectName: 'maciejwyrodek'
+
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
@@ -43,3 +51,9 @@ steps:
     testResultsFiles: '**/TEST-*.xml'
     mergeTestResults: true
     failTaskOnFailedTests: true
+
+- task: SonarCloudAnalyze@1
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
