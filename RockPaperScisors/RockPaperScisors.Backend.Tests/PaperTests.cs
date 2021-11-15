@@ -17,7 +17,6 @@ namespace RockPaperScisors.Backend.Tests
             var sut = new Paper();
 
             var actualType = sut.MoveType;
-            Assert.Equal(9,sut.counter);
             Assert.Equal(MoveType.PAPER, actualType);
         }
 
@@ -29,7 +28,6 @@ namespace RockPaperScisors.Backend.Tests
         {
             var actualResult = new Paper()
                 .IsWinning(playerMove);
-            Assert.Equal(9, sut.counter);
             Assert.Equal(expected, actualResult);
         }
 
