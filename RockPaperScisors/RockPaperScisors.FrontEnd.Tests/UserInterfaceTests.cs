@@ -41,5 +41,17 @@ namespace RockPaperScisors.FrontEnd.Tests
             mocKTerimnal.Verify(t => t.Print(It.Is<string>(s => s.Contains("player 2"))), Times.Once);
             mocKTerimnal.Verify(t => t.Print(It.Is<string>(s => s.Contains("1 to 2"))), Times.Once);
         }
+
+        //setup quit
+        //setup proper 3 wins
+        //setup illegal action then proper
+
+        //legal action 
+        //player info
+        //action desc
+        //proper inputs
+        //ilegal inputs
+        //
+
     }
 }
