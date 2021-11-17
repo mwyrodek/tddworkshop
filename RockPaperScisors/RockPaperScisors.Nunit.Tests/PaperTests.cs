@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using RockPaperScissors.Backend;
 using FluentAssertions;
+using RockPaperScissors.Backend.Models;
 
 namespace RockPaperScisors.Nunit.Tests
 {
@@ -59,5 +60,16 @@ namespace RockPaperScisors.Nunit.Tests
         {
             return sut.IsWinning(playerMove);
         }
+
+        [Test]
+        public void Same()
+        {
+            var GROne = new GameResult();
+            var GRTwo = new GameResult();
+            var GRThree = GROne;
+            GROne.Should().BeEquivalentTo(GRTwo);
+            GROne.Should().Be(GRThree);
+        }
+
     }
 }

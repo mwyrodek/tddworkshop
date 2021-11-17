@@ -94,7 +94,5 @@ namespace RockPaperScisors
         {
             Environment.Exit(0);
         }
-
-
     }
 }
