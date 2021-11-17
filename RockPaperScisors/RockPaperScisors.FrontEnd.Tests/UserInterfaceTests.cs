@@ -39,6 +39,23 @@ namespace RockPaperScisors.FrontEnd.Tests
             Assert.Equal(expetedPrintCalls, spyTerminal.Prints.Count);
             Assert.Equal(expetedMaxWins, actualOptions.MaxWins);
         }
+
+        [Fact]
+        public void LegalUserActions_UserMakesMistakeTwoTimesThenSendProperResponse_ResponseAccepted()
+        {
+            var spyTerminal = new SpyTerminal();
+            spyTerminal.Inputs.Push('P');
+            spyTerminal.Inputs.Push('A');
+            spyTerminal.Inputs.Push('S');
+            var expetedPrintCalls = 2;
+            var sut = new TestAbleUserInteface(spyTerminal);
+            var expectedActions = new char[] { 'P', 'C' };
+
+            var actualResult = sut.PublicGetLegalUserActions(expectedActions);
+
+            Assert.Equal(expetedPrintCalls, spyTerminal.Prints.Count);
+            Assert.Equal(expectedActions[0], actualResult);
+        }
     }
 
     public class SpyTerminal : ITerminal
@@ -59,5 +76,18 @@ namespace RockPaperScisors.FrontEnd.Tests
         {
             return Inputs.Pop();
         }
+    }
+
+    internal class TestAbleUserInteface : UserInterface
+    {
+        public TestAbleUserInteface(ITerminal terminal) : base(terminal)
+        {
+        }
+
+        public char PublicGetLegalUserActions(char[] LegalActions)
+        {
+            return this.GetLegalUserActions(LegalActions);
+        }
+
     }
 }
