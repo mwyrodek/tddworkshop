@@ -18,8 +18,6 @@ namespace RockPaperScisors.Nunit.Tests
         [Test]
         public void Paper_GetType_ReturnsPaper()
         {
-
-
             var actualType = sut.MoveType;
             System.Console.WriteLine(sut.counter);
             Assert.AreEqual(MoveType.PAPER, actualType, "Paper class should have paper type!");
@@ -41,7 +39,6 @@ namespace RockPaperScisors.Nunit.Tests
             sut.MoveType
                 .Should()
                 .Be(MoveType.PAPER);
-            System.Console.WriteLine(sut.counter);
         }
 
         [TestCase(MoveType.SCISSORS, TurnResult.LOSE)]

@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockPaperScisors", "RockPap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockPaperScissors.Backend", "RockPaperScissors.Backend\RockPaperScissors.Backend.csproj", "{D28E95A5-F52F-4F25-A47C-7F05370AFF04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockPaperScisors.Backend.Tests", "RockPaperScisors.Backend.Tests\RockPaperScisors.Backend.Tests.csproj", "{62110060-D07E-4115-BED6-6A618A1EB23F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockPaperScisors.Backend.Tests", "RockPaperScisors.Backend.Tests\RockPaperScisors.Backend.Tests.csproj", "{62110060-D07E-4115-BED6-6A618A1EB23F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockPaperScisors.Nunit.Tests", "RockPaperScisors.Nunit.Tests\RockPaperScisors.Nunit.Tests.csproj", "{0414FBB2-2F5E-4E80-94F0-58552D6AEF5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockPaperScisors.Nunit.Tests", "RockPaperScisors.Nunit.Tests\RockPaperScisors.Nunit.Tests.csproj", "{0414FBB2-2F5E-4E80-94F0-58552D6AEF5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockPaperScisors.FrontEnd.Tests", "RockPaperScisors.FrontEnd.Tests\RockPaperScisors.FrontEnd.Tests.csproj", "{FBD1D21E-9557-47E7-8D37-DDD55B2C54E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,9 @@ Global
 		{0414FBB2-2F5E-4E80-94F0-58552D6AEF5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0414FBB2-2F5E-4E80-94F0-58552D6AEF5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0414FBB2-2F5E-4E80-94F0-58552D6AEF5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBD1D21E-9557-47E7-8D37-DDD55B2C54E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBD1D21E-9557-47E7-8D37-DDD55B2C54E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBD1D21E-9557-47E7-8D37-DDD55B2C54E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

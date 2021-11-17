@@ -14,12 +14,12 @@ namespace RockPaperScissors.Backend
     public class GameEngine
     {
         private GameOptions Options;
-        private IUserInterface ui;
+        private IUserInterface Ui;
         internal protected GameResult GameResult;
 
         public GameEngine(IUserInterface Ui)
         {
-            this.ui = Ui;
+            this.Ui = Ui;
             this.GameResult = new GameResult();
             this.Options = new GameOptions();
         }
@@ -30,18 +30,18 @@ namespace RockPaperScissors.Backend
             while (!this.GameResult.Finshed)
             {
                 var Actions = new PlayerActions();
-                Actions.PlayerOneMove = ui.GetPlayerAction(1);
-                Actions.PlayerTwoMove = ui.GetPlayerAction(2);
+                Actions.PlayerOneMove = Ui.GetPlayerAction(1);
+                Actions.PlayerTwoMove = Ui.GetPlayerAction(2);
 
                 var result = PlayTurn(Actions);
 
-                ui.DisplayReults(result);
+                Ui.DisplayResults(result);
             }
         }
 
         protected void SetupGame()
         {
-            this.Options = ui.SetupGame();
+            this.Options = Ui.SetupGame();
             if (this.Options.MaxWins < 1) throw new ArgumentOutOfRangeException($"Values {this.Options.MaxWins} is Smaller than minimal allowed number of wins: 1");
             this.GameResult = new GameResult();
         }

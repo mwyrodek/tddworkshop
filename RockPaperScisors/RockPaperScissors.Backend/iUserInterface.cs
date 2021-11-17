@@ -13,6 +13,6 @@ namespace RockPaperScissors.Backend
 
         MoveType GetPlayerAction(int PlayerNumber);
 
-        void DisplayReults(GameResult gameResult);
+        void DisplayResults(GameResult gameResult);
     }
 }

@@ -18,10 +18,10 @@ namespace RockPaperScisors
             this.terminal = terminal;
         }
 
-        public void DisplayReults(GameResult gameResult)
+        public void DisplayResults(GameResult gameResult)
         {
 
-            string score = $"{gameResult.PlayerOneScore} to {gameResult.PlayerTwoScore} ";
+            string score = $"{gameResult.PlayerOneScore} to {gameResult.PlayerTwoScore}";
 
             if (gameResult.RoundWonByPlayer == 0)
             {
@@ -77,7 +77,7 @@ namespace RockPaperScisors
             if (userInput == 'Q') QuitGame();
         }
 
-        private char GetLegalUserActions(char[] LegalActions)
+        internal protected char GetLegalUserActions(char[] LegalActions)
         {
             while (true)
             {
