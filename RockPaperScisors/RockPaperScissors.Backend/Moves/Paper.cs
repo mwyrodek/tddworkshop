@@ -4,6 +4,7 @@ namespace RockPaperScissors.Backend
 {
     public class Paper : Move
     {
+        public int counter = 0;
         private List<MoveType> winsWith => new List<MoveType>() { MoveType.ROCK };
         private List<MoveType> losesTo => new List<MoveType>() { MoveType.SCISSORS };
         public Paper() {
@@ -14,6 +15,7 @@ namespace RockPaperScissors.Backend
 
         public  TurnResult IsWinning(MoveType move)
         {
+            counter++;
             if (move == this.MoveType) 
                 return TurnResult.TIE;
             if (winsWith.Contains(move))
