@@ -99,5 +99,10 @@ namespace RockPaperScisors
         {
             Environment.Exit(0);
         }
+
+        public bool Continue()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
