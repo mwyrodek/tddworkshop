@@ -12,7 +12,7 @@ namespace RockPaperScisors
     {
 
         private readonly ITerminal terminal;
-        private int MistakeLimit = 10;
+        private readonly int MistakeLimit = 10;
 
         public UserInterface(ITerminal terminal)
         {
