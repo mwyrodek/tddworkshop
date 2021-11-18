@@ -58,6 +58,23 @@ namespace RockPaperScisors.FrontEnd.Tests
             Assert.Equal(expectedActions[0], actualResult);
         }
 
+        [Fact]
+        public void LegalUserActions_UserMakesMistakeTenMistakes_GameThrowsError()
+        {
+            mockTerminal.Setup(t => t.UserInput())
+                .Returns('S');
+            var expetedPrintCalls = 10;
+
+
+            var sut = new TestAbleUserInteface(mockTerminal.Object);
+            var expectedActions = new char[] { 'P' };
+
+           Assert.Throws<TooManyMistakesException>(()=>  sut.PublicGetLegalUserActions(expectedActions));
+
+            mockTerminal.Verify(t => t.Print(It.IsAny<string>()), Times.Exactly(expetedPrintCalls));
+
+        }
+
         [Theory]
         [InlineData('S', MoveType.SCISSORS)]
         [InlineData('P', MoveType.PAPER)]

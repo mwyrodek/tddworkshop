@@ -8,7 +8,7 @@ namespace RockPaperScisors.Nunit.Tests
     public class PaperTests
     {
 
-        Paper sut;
+        Paper sut; 
 
         [SetUp]
         public void Setup()
@@ -57,16 +57,5 @@ namespace RockPaperScisors.Nunit.Tests
         {
             return sut.IsWinning(playerMove);
         }
-
-        [Test]
-        public void Same()
-        {
-            var GROne = new GameResult();
-            var GRTwo = new GameResult();
-            var GRThree = GROne;
-            GROne.Should().BeEquivalentTo(GRTwo);
-            GROne.Should().Be(GRThree);
-        }
-
     }
 }

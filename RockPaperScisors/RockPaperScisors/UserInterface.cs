@@ -12,6 +12,7 @@ namespace RockPaperScisors
     {
 
         private ITerminal terminal;
+        private int MistakeLimit = 10;
 
         public UserInterface(ITerminal terminal)
         {
@@ -82,7 +83,7 @@ namespace RockPaperScisors
 
         internal protected char GetLegalUserActions(char[] LegalActions)
         {
-            while (true)
+            for(int i = 0; i < this.MistakeLimit; i++)
             {
                 var input = terminal.UserInput();
                 if (LegalActions.Contains(input))
@@ -91,6 +92,7 @@ namespace RockPaperScisors
                 }
                 this.terminal.Print($"Incorrect action avaible actions are:{new string(LegalActions)}");
             }
+            throw new TooManyMistakesException();
 
         }
         private void QuitGame()
