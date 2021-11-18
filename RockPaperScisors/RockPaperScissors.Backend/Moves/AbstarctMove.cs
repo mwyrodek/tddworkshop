@@ -6,18 +6,21 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissors.Backend.Moves
 {
-    public abstract class AbstarctMove : Move
+    public abstract class AbstarctMove : IMove
     {
         protected List<MoveType> winsWith;
         protected List<MoveType> losesTo;
         public  MoveType MoveType { get; }
-        public AbstarctMove(MoveType type)
+        protected AbstarctMove(MoveType type)
         {
             MoveType = type;
+            this.winsWith = new List<MoveType>();
+            this.losesTo = new List<MoveType>();
+
         }
 
 
-        public TurnResult IsWinning(MoveType move)
+    public TurnResult IsWinning(MoveType move)
         {
             if (move == this.MoveType)
                 return TurnResult.TIE;

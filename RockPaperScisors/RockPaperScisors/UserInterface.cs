@@ -11,7 +11,7 @@ namespace RockPaperScisors
     public class UserInterface : IUserInterface
     {
 
-        private ITerminal terminal;
+        private readonly ITerminal terminal;
         private int MistakeLimit = 10;
 
         public UserInterface(ITerminal terminal)
@@ -95,7 +95,7 @@ namespace RockPaperScisors
             throw new TooManyMistakesException();
 
         }
-        private void QuitGame()
+        private static void QuitGame()
         {
             Environment.Exit(0);
         }

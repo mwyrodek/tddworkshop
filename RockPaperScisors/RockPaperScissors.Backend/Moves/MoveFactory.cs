@@ -8,7 +8,7 @@ namespace RockPaperScissors.Backend.Moves
 {
     public static class MoveFactory
     {
-        public static Move GetMove(MoveType move)
+        public static IMove GetMove(MoveType move)
         {
             switch (move)
             {
@@ -22,7 +22,7 @@ namespace RockPaperScissors.Backend.Moves
                     return new Sun();
                 case MoveType.CLIPY:
                     return new Clipy();
-                default: throw new ArgumentOutOfRangeException();
+                default: throw new ArgumentOutOfRangeException($"Enum took unknown value {move}");
 
             }
         }

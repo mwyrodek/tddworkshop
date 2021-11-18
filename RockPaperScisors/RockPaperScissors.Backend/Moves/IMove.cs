@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissors.Backend.Moves
 {
-    public interface Move
+    public interface IMove
     {
          MoveType MoveType { get; }
 

@@ -8,13 +8,7 @@ namespace RockPaperScisors.Nunit.Tests
     public class PaperTests
     {
 
-        Paper sut; 
-
-        [SetUp]
-        public void Setup()
-        {
-            sut = new Paper();
-        }
+        Paper sut = new Paper();
 
         [Test]
         public void Paper_GetType_ReturnsPaper()

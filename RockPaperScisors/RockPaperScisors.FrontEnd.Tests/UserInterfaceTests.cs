@@ -93,8 +93,8 @@ namespace RockPaperScisors.FrontEnd.Tests
         }
 
         [Theory]
-        [InlineData('S', MoveType.SCISSORS)]
-        public void GetPlayerAction_TakeUserInput_ProperInfoIsDisplayed(char input, MoveType expectedResult)
+        [InlineData('S')]
+        public void GetPlayerAction_TakeUserInput_ProperInfoIsDisplayed(char input)
         {
             mockTerminal.Setup(t => t.UserInput()).Returns(input);
 

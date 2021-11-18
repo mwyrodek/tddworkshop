@@ -7,7 +7,7 @@ namespace RockPaperScissors.Backend
     public class GameEngine
     {
         private GameOptions Options;
-        private IUserInterface Ui;
+        private readonly IUserInterface Ui;
         internal protected GameResult GameResult;
 
         public GameEngine(IUserInterface Ui)
