@@ -26,6 +26,7 @@ namespace RockPaperScisors.Backend.Tests
         [InlineData(MoveType.ROCK, typeof(Rock))]
         [InlineData(MoveType.PAPER, typeof(Paper))]
         [InlineData(MoveType.SUN, typeof(Sun))]
+        [InlineData(MoveType.CLIPY, typeof(Clipy))]
         public void MoveFactory_SendingMoveType_ReturnsProperClass(MoveType playerMove, Type expectedType)
         {
 

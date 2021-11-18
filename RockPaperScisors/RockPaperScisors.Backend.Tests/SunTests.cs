@@ -21,9 +21,9 @@ namespace RockPaperScisors.Backend.Tests
         }
 
         [Theory]
-        [InlineData(MoveType.SCISSORS, TurnResult.WIN)]
+        [InlineData(MoveType.SCISSORS, TurnResult.LOSE)]
         [InlineData(MoveType.PAPER, TurnResult.LOSE)]
-        [InlineData(MoveType.ROCK, TurnResult.LOSE)]
+        [InlineData(MoveType.ROCK, TurnResult.WIN)]
         [InlineData(MoveType.SUN, TurnResult.TIE)]
         [InlineData(MoveType.CLIPY, TurnResult.WIN)]
         public void Sun_IsWinning_ReturnsExpected(MoveType playerMove, TurnResult expected)

@@ -6,8 +6,8 @@ namespace RockPaperScissors.Backend
     {
   
         public Rock(): base(MoveType.ROCK) {
-            winsWith = new List<MoveType>() { MoveType.SCISSORS, MoveType.SUN };
-            losesTo = new List<MoveType>() { MoveType.PAPER };
+            winsWith = new List<MoveType>() { MoveType.SCISSORS};
+            losesTo = new List<MoveType>() { MoveType.PAPER, MoveType.SUN };
         }
 
 

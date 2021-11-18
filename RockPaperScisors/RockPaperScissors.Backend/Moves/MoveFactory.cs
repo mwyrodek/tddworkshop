@@ -20,6 +20,8 @@ namespace RockPaperScissors.Backend.Moves
                     return new Rock();
                 case MoveType.SUN:
                     return new Sun();
+                case MoveType.CLIPY:
+                    return new Clipy();
                 default: throw new ArgumentOutOfRangeException();
 
             }
