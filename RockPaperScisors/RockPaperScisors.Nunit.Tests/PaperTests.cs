@@ -20,7 +20,6 @@ namespace RockPaperScisors.Nunit.Tests
         public void Paper_GetType_ReturnsPaper()
         {
             var actualType = sut.MoveType;
-            System.Console.WriteLine(sut.counter);
             Assert.AreEqual(MoveType.PAPER, actualType, "Paper class should have paper type!");
 
         }
@@ -30,7 +29,6 @@ namespace RockPaperScisors.Nunit.Tests
         {
 
             var actualType = sut.MoveType;
-            System.Console.WriteLine(sut.counter);
             Assert.That(actualType, Is.EqualTo(MoveType.PAPER));
         }
 
@@ -50,7 +48,6 @@ namespace RockPaperScisors.Nunit.Tests
                 sut.IsWinning(playerMove)
                 .Should()
                 .Be(expected);
-            System.Console.WriteLine(sut.counter);
         }
 
         [TestCase(MoveType.SCISSORS, ExpectedResult = TurnResult.LOSE)]

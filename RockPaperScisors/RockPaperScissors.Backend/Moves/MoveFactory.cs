@@ -18,6 +18,8 @@ namespace RockPaperScissors.Backend.Moves
                     return new Paper();
                 case MoveType.ROCK:
                     return new Rock();
+                case MoveType.SUN:
+                    return new Sun();
                 default: throw new ArgumentOutOfRangeException();
 
             }

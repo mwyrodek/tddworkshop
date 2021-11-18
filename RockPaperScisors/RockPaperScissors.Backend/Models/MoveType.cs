@@ -11,6 +11,7 @@ namespace RockPaperScissors.Backend
         PAPER,
         SCISSORS,
         ROCK,
-
+        CLIPY,
+        SUN
     }
 }

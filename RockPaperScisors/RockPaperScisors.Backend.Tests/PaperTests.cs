@@ -24,6 +24,7 @@ namespace RockPaperScisors.Backend.Tests
         [InlineData(MoveType.SCISSORS, TurnResult.LOSE)]
         [InlineData(MoveType.PAPER, TurnResult.TIE)]
         [InlineData(MoveType.ROCK, TurnResult.WIN)]
+        [InlineData(MoveType.SUN, TurnResult.WIN)]
         public void Paper_IsWinning_ReturnsExpected(MoveType playerMove, TurnResult expected)
         {
             var actualResult = new Paper()

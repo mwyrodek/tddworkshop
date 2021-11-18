@@ -2,32 +2,12 @@
 
 namespace RockPaperScissors.Backend
 {
-    public class Paper : Move
+    public class Paper : AbstarctMove
     {
-        public int counter = 0;
-        private List<MoveType> winsWith => new List<MoveType>() { MoveType.ROCK };
-        private List<MoveType> losesTo => new List<MoveType>() { MoveType.SCISSORS };
-        public Paper() {
-            this.MoveType = MoveType.PAPER;
-        }
-
-        public  MoveType MoveType { get; }
-
-        public  TurnResult IsWinning(MoveType move)
+        public Paper() : base(MoveType.PAPER)
         {
-            counter++;
-            if (move == this.MoveType) 
-                return TurnResult.TIE;
-            if (winsWith.Contains(move))
-            {
-                return TurnResult.WIN;
-            }
-            if (losesTo.Contains(move))
-            {
-                return TurnResult.LOSE;
-            }
-
-                throw new ArgumentOutOfRangeException($"Unknow value of {move}");
+            winsWith = new List<MoveType>() { MoveType.ROCK, MoveType.SUN };
+            losesTo = new List<MoveType>() { MoveType.SCISSORS };
         }
     }
 }
