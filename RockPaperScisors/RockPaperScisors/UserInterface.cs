@@ -37,8 +37,8 @@ namespace RockPaperScisors
         public MoveType GetPlayerAction(int PlayerNumber)
         {
             this.terminal.Print($"Player {PlayerNumber} your move");
-            this.terminal.Print("[R]ock [P]aper [S]cisors [Q]");
-            char[] legalActions = new char[] { 'R', 'P', 'S', 'Q' };
+            this.terminal.Print("[R]ock [P]aper [S]cisors [U]Sun [C]lipy [Q]");
+            char[] legalActions = new char[] { 'R', 'P', 'S','U','C', 'Q' };
 
             var input = GetLegalUserActions(legalActions);
             HandleQuitRequest(input);
@@ -51,7 +51,10 @@ namespace RockPaperScisors
                     return MoveType.PAPER;
                 case 'S':
                     return MoveType.SCISSORS;
-
+                case 'U':
+                    return MoveType.SUN;
+                case 'C':
+                    return MoveType.CLIPY;
                 default: throw new InvalidOperationException();
             }
         }

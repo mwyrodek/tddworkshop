@@ -62,11 +62,12 @@ namespace RockPaperScisors.FrontEnd.Tests
         [InlineData('S', MoveType.SCISSORS)]
         [InlineData('P', MoveType.PAPER)]
         [InlineData('R', MoveType.ROCK)]
+        [InlineData('U', MoveType.SUN)]
+        [InlineData('C', MoveType.CLIPY)]
         public void GetPlayerAction_TakeUserInput_ReturnMove(char input, MoveType expectedResult)
         {
             mockTerminal.Setup(t => t.UserInput()).Returns(input);
 
-            var expetedPrintCalls = 2;
             var playerNumber = 2;
             var sut = new TestAbleUserInteface(mockTerminal.Object);
     
@@ -87,7 +88,7 @@ namespace RockPaperScisors.FrontEnd.Tests
             var actualResult = sut.GetPlayerAction(playerNumber);
             mockTerminal.Verify(t => t.Print(It.IsAny<string>()), Times.Exactly(expetedPrintCalls));
             mockTerminal.Verify(t => t.Print(It.Is<string>(s => s.Contains($"Player {playerNumber} your move"))));
-            mockTerminal.Verify(t => t.Print(It.Is<string>(s => s.Contains($"[R]ock [P]aper [S]cisors [Q]"))));
+            mockTerminal.Verify(t => t.Print(It.Is<string>(s => s.Contains($"[R]ock [P]aper [S]cisors [U]Sun [C]lipy [Q]"))));
         }
 
     }
