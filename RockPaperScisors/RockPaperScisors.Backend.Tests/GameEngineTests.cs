@@ -92,9 +92,39 @@ namespace RockPaperScisors.Backend.Tests
 
             var sut = fixture.Create<TestableGameEngine>();
 
-             var gameResult = sut.TestablePlayTurn(actions);
+            var gameResult = sut.TestablePlayTurn(actions);
 
             gameResult.ShouldDeepEqual(expetedResult);
+        }
+
+        [Fact]
+        public void GameDoenstCloseAfterPlayerWin()
+        {
+            var uiMock = fixture.Freeze<Mock<IUserInterface>>();
+            var GameOptions = new GameOptions();
+            GameOptions.MaxWins = 2;
+
+            uiMock.Setup(ui => ui.SetupGame())
+            .Returns(GameOptions);
+            uiMock.SetupSequence(ui => ui.GetPlayerAction(It.IsAny<int>()))
+                .Returns(MoveType.SCISSORS)
+                .Returns(MoveType.ROCK)
+                 .Returns(MoveType.SCISSORS)
+                .Returns(MoveType.ROCK)
+                .Returns(MoveType.SCISSORS)
+                .Returns(MoveType.ROCK)
+                 .Returns(MoveType.SCISSORS)
+                .Returns(MoveType.ROCK);
+
+            uiMock.SetupSequence(ui => ui.Continue())
+                           .Returns(true)
+                           .Returns(false);
+
+            var sut = fixture.Create<TestableGameEngine>();
+
+            sut.RunGame();
+
+            uiMock.Verify(ui => ui.SetupGame(), Times.Exactly(2));
         }
     }
 

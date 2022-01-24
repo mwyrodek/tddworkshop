@@ -19,16 +19,21 @@ namespace RockPaperScissors.Backend
 
         public void RunGame()
         {
-            SetupGame();
-            while (!this.GameResult.Finshed)
+            var rungame = true;
+            while (rungame)
             {
-                var Actions = new PlayerActions();
-                Actions.PlayerOneMove = Ui.GetPlayerAction(1);
-                Actions.PlayerTwoMove = Ui.GetPlayerAction(2);
+                SetupGame();
+                while (!this.GameResult.Finshed)
+                {
+                    var Actions = new PlayerActions();
+                    Actions.PlayerOneMove = Ui.GetPlayerAction(1);
+                    Actions.PlayerTwoMove = Ui.GetPlayerAction(2);
 
-                var result = PlayTurn(Actions);
+                    var result = PlayTurn(Actions);
 
-                Ui.DisplayResults(result);
+                    Ui.DisplayResults(result);
+                }
+                rungame = Ui.Continue();
             }
         }
 
